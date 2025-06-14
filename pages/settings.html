@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settings</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://kit.fontawesome.com/042039b369.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/music_logo.svg">
+  <style>
+    .settings-section {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2em;
+      margin-top: 2em;
+      max-width: 600px;
+    }
+    .settings-section h1 {
+      margin-bottom: 1.5em;
+      color: #22223b;
+    }
+    .settings-form label {
+      display: block;
+      margin-bottom: 0.5em;
+      font-weight: 500;
+      color: #4a4e69;
+    }
+    .settings-form input[type="text"],
+    .settings-form input[type="email"],
+    .settings-form input[type="password"] {
+      width: 100%;
+      padding: 0.75em;
+      margin-bottom: 1.2em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    .settings-form .form-group {
+      margin-bottom: 1.5em;
+    }
+    .settings-form button {
+      background: #4a4e69;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.8em 2em;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .settings-form button:hover {
+      background: #22223b;
+    }
+    .settings-section hr {
+      margin: 2em 0;
+      border: none;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <div class="dashboard-layout">
+    <div id="sidebar"></div>
+    <main class="content">
+      <nav class="breadcrumb">
+        <a href="index.html">Dashboard</a> /
+        <span>Settings</span>
+      </nav>
+      <section class="settings-section">
+        <h1>Account Settings</h1>
+        <form class="settings-form">
+          <div class="form-group">
+            <label for="name"><i class="fa fa-user"></i> Name</label>
+            <input type="text" id="name" name="name" value="Sunday Vegher" required>
+          </div>
+          <div class="form-group">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="email" id="email" name="email" value="sunday@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="password"><i class="fa fa-lock"></i> Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter new password">
+          </div>
+          <button type="submit"><i class="fa fa-save"></i> Save Changes</button>
+        </form>
+        <hr>
+        <form class="settings-form">
+          <div class="form-group">
+            <label for="theme"><i class="fa fa-adjust"></i> Theme</label>
+            <select id="theme" name="theme" style="width:100%;padding:0.75em;border-radius:4px;border:1px solid #ccc;">
+              <option value="light" selected>Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+          <button type="submit"><i class="fa fa-paint-brush"></i> Update Preferences</button>
+        </form>
+      </section>
+    </main>
+  </div>
+  <script src="../scripts/components.js"></script>
+  <script>
+    loadComponent('../components/Navbar.html', '#navbar');
+    loadComponent('../components/Sidebar.html', '#sidebar');
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://kit.fontawesome.com/042039b369.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/music_logo.svg">
+  <style>
+    .report-section {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2em;
+      margin-top: 2em;
+    }
+    .report-summary {
+      display: flex;
+      gap: 2em;
+      margin-bottom: 2em;
+      flex-wrap: wrap;
+    }
+    .report-card {
+      background: #f4f6fa;
+      border-radius: 8px;
+      padding: 1.5em 2em;
+      min-width: 180px;
+      flex: 1 1 180px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+      text-align: center;
+    }
+    .report-card h2 {
+      margin: 0 0 0.5em 0;
+      font-size: 2em;
+      color: #22223b;
+    }
+    .report-card p {
+      margin: 0;
+      color: #888;
+      font-size: 1em;
+    }
+    .report-table-section {
+      margin-top: 2em;
+    }
+    .report-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .report-table th, .report-table td {
+      padding: 1em;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    .report-table th {
+      background: #f4f6fa;
+    }
+    .report-table tr:last-child td {
+      border-bottom: none;
+    }
+    .download-btn {
+      background: #4a4e69;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 1em;
+      transition: background 0.2s;
+      float: right;
+    }
+    .download-btn:hover {
+      background: #22223b;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <div class="dashboard-layout">
+    <div id="sidebar"></div>
+    <main class="content">
+      <nav class="breadcrumb">
+        <a href="index.html">Dashboard</a> /
+        <span>Reports</span>
+      </nav>
+      <section class="report-section">
+        <h1>Reports</h1>
+        <div class="report-summary">
+          <div class="report-card">
+            <h2>$12,500</h2>
+            <p>Total Revenue</p>
+          </div>
+          <div class="report-card">
+            <h2>980</h2>
+            <p>Total Orders</p>
+          </div>
+          <div class="report-card">
+            <h2>1,245</h2>
+            <p>Total Customers</p>
+          </div>
+          <div class="report-card">
+            <h2>320</h2>
+            <p>Products Sold</p>
+          </div>
+        </div>
+        <button class="download-btn"><i class="fa fa-download"></i> Download Report</button>
+        <section class="report-table-section">
+          <h2>Recent Reports</h2>
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Report Name</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2025-06-14</td>
+                <td>Monthly Sales</td>
+                <td>Sales</td>
+                <td><span class="status success">Ready</span></td>
+                <td><a href="#"><i class="fa fa-download"></i></a></td>
+              </tr>
+              <tr>
+                <td>2025-06-13</td>
+                <td>Customer Growth</td>
+                <td>Customers</td>
+                <td><span class="status pending">Processing</span></td>
+                <td><a href="#"><i class="fa fa-download"></i></a></td>
+              </tr>
+              <tr>
+                <td>2025-06-12</td>
+                <td>Inventory</td>
+                <td>Products</td>
+                <td><span class="status failed">Failed</span></td>
+                <td><a href="#"><i class="fa fa-download"></i></a></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script src="../scripts/components.js"></script>
+  <script>
+    loadComponent('../components/Navbar.html', '#navbar');
+    loadComponent('../components/Sidebar.html', '#sidebar');
+  </script>
+</body>
+</html>

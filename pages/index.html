@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://kit.fontawesome.com/042039b369.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/music_logo.svg">
+</head>
+<body>
+  <!-- Navbar Component -->
+  <div id="navbar"></div>
+  <div class="dashboard-layout">
+    <!-- Sidebar Component -->
+    <div id="sidebar"></div>
+    <main class="content">
+      <nav class="breadcrumb">
+        <span>Dashboard</span>
+      </nav>
+      <section class="dashboard-welcome">
+        <h1>Welcome back, Sunday Vegher!</h1>
+        <p>Here’s an overview of your dashboard activity.</p>
+      </section>
+      <section class="dashboard-cards">
+        <div class="dashboard-card">
+          <i class="fa fa-user"></i>
+          <div>
+            <h2>1,245</h2>
+            <p>Customers</p>
+          </div>
+        </div>
+        <div class="dashboard-card">
+          <i class="fa fa-shopping-cart"></i>
+          <div>
+            <h2>320</h2>
+            <p>Products</p>
+          </div>
+        </div>
+        <div class="dashboard-card">
+          <i class="fa fa-sticky-note"></i>
+          <div>
+            <h2>980</h2>
+            <p>Orders</p>
+          </div>
+        </div>
+        <div class="dashboard-card">
+          <i class="fa fa-list-alt"></i>
+          <div>
+            <h2>12</h2>
+            <p>Reports</p>
+          </div>
+        </div>
+      </section>
+      <section class="dashboard-table-section">
+        <h2>Recent Transactions</h2>
+        <table class="dashboard-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Customer</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2025-06-14</td>
+              <td>Jane Doe</td>
+              <td>$120.00</td>
+              <td><span class="status success">Completed</span></td>
+              <td><a href="customerDetails.html"><i class="fa fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>2025-06-13</td>
+              <td>John Smith</td>
+              <td>$75.50</td>
+              <td><span class="status pending">Pending</span></td>
+              <td><a href="customerDetails.html"><i class="fa fa-eye"></i></a></td>
+            </tr>
+            <tr>
+              <td>2025-06-12</td>
+              <td>Mary Johnson</td>
+              <td>$210.00</td>
+              <td><span class="status failed">Failed</span></td>
+              <td><a href="customerDetails.html"><i class="fa fa-eye"></i></a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="../scripts/components.js"></script>
+  <script>
+    loadComponent('../components/Navbar.html', '#navbar');
+    loadComponent('../components/Sidebar.html', '#sidebar');
+  </script>
+  <style>
+    .dashboard-welcome {
+      margin-bottom: 2em;
+    }
+    .dashboard-cards {
+      display: flex;
+      gap: 2em;
+      margin-bottom: 2em;
+      flex-wrap: wrap;
+    }
+    .dashboard-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 1.5em 2em;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      min-width: 180px;
+      flex: 1 1 180px;
+    }
+    .dashboard-card i {
+      font-size: 2em;
+      color: #4a4e69;
+    }
+    .dashboard-card h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #22223b;
+    }
+    .dashboard-card p {
+      margin: 0;
+      color: #888;
+    }
+    .dashboard-table-section {
+      margin-top: 2em;
+    }
+    .dashboard-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .dashboard-table th, .dashboard-table td {
+      padding: 1em;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    .dashboard-table th {
+      background: #f4f6fa;
+    }
+    .dashboard-table tr:last-child td {
+      border-bottom: none;
+    }
+    .status {
+      padding: 0.3em 1em;
+      border-radius: 12px;
+      font-size: 0.95em;
+      color: #fff;
+      display: inline-block;
+    }
+    .status.success { background: #4caf50; }
+    .status.pending { background: #ff9800; }
+    .status.failed { background: #f44336; }
+  </style>
+</body>
+</html>

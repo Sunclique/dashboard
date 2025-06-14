@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Integrations</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://kit.fontawesome.com/042039b369.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/music_logo.svg">
+  <style>
+    .integration-section {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2em;
+      margin-top: 2em;
+    }
+    .integration-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2em;
+      margin-top: 1.5em;
+    }
+    .integration-card {
+      background: #f4f6fa;
+      border-radius: 8px;
+      padding: 1.5em 2em;
+      min-width: 220px;
+      flex: 1 1 220px;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .integration-card i {
+      font-size: 2em;
+      color: #4a4e69;
+    }
+    .integration-card .integration-info {
+      flex: 1;
+    }
+    .integration-card h3 {
+      margin: 0 0 0.2em 0;
+      font-size: 1.2em;
+      color: #22223b;
+    }
+    .integration-card p {
+      margin: 0;
+      color: #888;
+      font-size: 0.97em;
+    }
+    .integration-card button {
+      background: #4a4e69;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.5em 1.2em;
+      cursor: pointer;
+      font-size: 0.97em;
+      transition: background 0.2s;
+    }
+    .integration-card button.connected {
+      background: #4caf50;
+    }
+    .integration-card button:hover {
+      background: #22223b;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <div class="dashboard-layout">
+    <div id="sidebar"></div>
+    <main class="content">
+      <nav class="breadcrumb">
+        <a href="index.html">Dashboard</a> /
+        <span>Integrations</span>
+      </nav>
+      <section class="integration-section">
+        <h1>Integrations</h1>
+        <p>Connect your dashboard with your favorite tools and services.</p>
+        <div class="integration-list">
+          <div class="integration-card">
+            <i class="fab fa-slack"></i>
+            <div class="integration-info">
+              <h3>Slack</h3>
+              <p>Get instant notifications and updates in your Slack workspace.</p>
+            </div>
+            <button>Connect</button>
+          </div>
+          <div class="integration-card">
+            <i class="fab fa-google-drive"></i>
+            <div class="integration-info">
+              <h3>Google Drive</h3>
+              <p>Sync and backup your files directly to Google Drive.</p>
+            </div>
+            <button class="connected">Connected</button>
+          </div>
+          <div class="integration-card">
+            <i class="fab fa-dropbox"></i>
+            <div class="integration-info">
+              <h3>Dropbox</h3>
+              <p>Integrate with Dropbox for easy file management.</p>
+            </div>
+            <button>Connect</button>
+          </div>
+          <div class="integration-card">
+            <i class="fab fa-buffer"></i>
+            <div class="integration-info">
+              <h3>Buffer</h3>
+              <p>Schedule and manage your social media posts with Buffer.</p>
+            </div>
+            <button>Connect</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../scripts/components.js"></script>
+  <script>
+    loadComponent('../components/Navbar.html', '#navbar');
+    loadComponent('../components/Sidebar.html', '#sidebar');
+  </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orders</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://kit.fontawesome.com/042039b369.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/music_logo.svg">
+  <style>
+    .orders-section {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2em;
+      margin-top: 2em;
+    }
+    .orders-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5em;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .orders-table th, .orders-table td {
+      padding: 1em;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    .orders-table th {
+      background: #f4f6fa;
+    }
+    .orders-table tr:last-child td {
+      border-bottom: none;
+    }
+    .status {
+      padding: 0.3em 1em;
+      border-radius: 12px;
+      font-size: 0.95em;
+      color: #fff;
+      display: inline-block;
+    }
+    .status.completed { background: #4caf50; }
+    .status.pending { background: #ff9800; }
+    .status.cancelled { background: #f44336; }
+    .orders-table a {
+      color: #4a4e69;
+      text-decoration: none;
+      margin-right: 0.5em;
+    }
+    .orders-table a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <div class="dashboard-layout">
+    <div id="sidebar"></div>
+    <main class="content">
+      <nav class="breadcrumb">
+        <a href="index.html">Dashboard</a> /
+        <span>Orders</span>
+      </nav>
+      <section class="orders-section">
+        <h1>Orders</h1>
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#1001</td>
+              <td>Jane Doe</td>
+              <td>2025-06-14</td>
+              <td>$120.00</td>
+              <td><span class="status completed">Completed</span></td>
+              <td>
+                <a href="orderDetails.html" title="View"><i class="fa fa-eye"></i></a>
+                <a href="#" title="Edit"><i class="fa fa-edit"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>#1002</td>
+              <td>John Smith</td>
+              <td>2025-06-13</td>
+              <td>$75.50</td>
+              <td><span class="status pending">Pending</span></td>
+              <td>
+                <a href="orderDetails.html" title="View"><i class="fa fa-eye"></i></a>
+                <a href="#" title="Edit"><i class="fa fa-edit"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>#1003</td>
+              <td>Mary Johnson</td>
+              <td>2025-06-12</td>
+              <td>$210.00</td>
+              <td><span class="status cancelled">Cancelled</span></td>
+              <td>
+                <a href="orderDetails.html" title="View"><i class="fa fa-eye"></i></a>
+                <a href="#" title="Edit"><i class="fa fa-edit"></i></a>
+              </td>
+            </tr>
+            <!-- More rows as needed -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="../scripts/components.js"></script>
+  <script>
+    loadComponent('../components/Navbar.html', '#navbar');
+    loadComponent('../components/Sidebar.html', '#sidebar');
+  </script>
+</body>
+</html>

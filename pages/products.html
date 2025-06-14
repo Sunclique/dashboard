@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://kit.fontawesome.com/042039b369.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/music_logo.svg">
+  <style>
+    .products-section {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2em;
+      margin-top: 2em;
+    }
+    .products-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5em;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+    .products-table th, .products-table td {
+      padding: 1em;
+      border-bottom: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    .products-table th {
+      background: #f4f6fa;
+    }
+    .products-table tr:last-child td {
+      border-bottom: none;
+    }
+    .products-table img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 0.5em;
+      vertical-align: middle;
+    }
+    .products-table a {
+      color: #4a4e69;
+      text-decoration: none;
+      margin-right: 0.5em;
+    }
+    .products-table a:hover {
+      text-decoration: underline;
+    }
+    .add-product-btn {
+      background: #4a4e69;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 0.7em 1.5em;
+      font-size: 1em;
+      cursor: pointer;
+      margin-bottom: 1em;
+      transition: background 0.2s;
+    }
+    .add-product-btn:hover {
+      background: #22223b;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <div class="dashboard-layout">
+    <div id="sidebar"></div>
+    <main class="content">
+      <nav class="breadcrumb">
+        <a href="index.html">Dashboard</a> /
+        <span>Products</span>
+      </nav>
+      <section class="products-section">
+        <h1>Products</h1>
+        <button class="add-product-btn"><i class="fa fa-plus"></i> Add Product</button>
+        <table class="products-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>SKU</th>
+              <th>Price</th>
+              <th>Stock</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img src="../assets/icons/music_logo.png" alt="Product">
+                Acoustic Guitar
+              </td>
+              <td>AGT-001</td>
+              <td>$350.00</td>
+              <td>25</td>
+              <td><span class="status success">Active</span></td>
+              <td>
+                <a href="#" title="Edit"><i class="fa fa-edit"></i></a>
+                <a href="#" title="Delete"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="../assets/icons/music_logo.png" alt="Product">
+                Electric Piano
+              </td>
+              <td>EPN-002</td>
+              <td>$800.00</td>
+              <td>10</td>
+              <td><span class="status pending">Low Stock</span></td>
+              <td>
+                <a href="#" title="Edit"><i class="fa fa-edit"></i></a>
+                <a href="#" title="Delete"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="../assets/icons/music_logo.png" alt="Product">
+                Drum Set
+              </td>
+              <td>DRM-003</td>
+              <td>$1200.00</td>
+              <td>0</td>
+              <td><span class="status failed">Out of Stock</span></td>
+              <td>
+                <a href="#" title="Edit"><i class="fa fa-edit"></i></a>
+                <a href="#" title="Delete"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            <!-- More rows as needed -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="../scripts/components.js"></script>
+  <script>
+    loadComponent('../components/Navbar.html', '#navbar');
+    loadComponent('../components/Sidebar.html', '#sidebar');
+  </script>
+</body>
+</html>

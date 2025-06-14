@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Customers</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://kit.fontawesome.com/042039b369.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="../assets/icons/music_logo.svg">
+</head>
+<body>
+  <!-- Navbar Component -->
+  <div id="navbar"></div>
+  <div class="dashboard-layout">
+    <!-- Sidebar Component -->
+    <div id="sidebar"></div>
+    <main class="content">
+      <nav class="breadcrumb">
+        <a href="index.html">Dashboard</a> /
+        <span>Customers</span>
+      </nav>
+      <section>
+        <h1>Customers</h1>
+        <!-- Add your customers table or content here -->
+        <table class="customers-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Example row -->
+            <tr>
+              <td>Jane Doe</td>
+              <td>jane.doe@email.com</td>
+              <td>+1234567890</td>
+              <td>Active</td>
+              <td>
+                <a href="customerDetails.html"><i class="fa fa-eye"></i></a>
+                <a href="#"><i class="fa fa-edit"></i></a>
+              </td>
+            </tr>
+            <!-- More rows here -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="../scripts/components.js"></script>
+  <script>
+    loadComponent('../components/Navbar.html', '#navbar');
+    loadComponent('../components/Sidebar.html', '#sidebar');
+  </script>
+</body>
+</html>
