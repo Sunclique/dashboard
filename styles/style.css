@@ -60,11 +60,17 @@ body {
   display: flex;
 }
 .sidenav {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 220px;
+  height: 100vh;
   background: #22223b;
   color: #fff;
-  min-height: 100vh;
   padding-top: 1em;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.3s;
 }
 .sidenav ul {
   list-style: none;
@@ -95,6 +101,8 @@ body {
 .content {
   flex: 1;
   padding: 2em;
+  margin-left: 220px; /* Same as sidebar width */
+  width: calc(100% - 220px);
 }
 .transactions table {
   width: 100%;
@@ -220,54 +228,68 @@ ul.nav-footer li a {
 }
 @media screen and (max-width: 900px) {
   .sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    padding-top: 0;
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-direction: row;
+  }
+  .sidenav ul {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    height: auto;
-    position: relative;
+    margin: 0;
+    padding: 0 1em;
+    align-items: center;
   }
-  
-  h3{
-    text-align: center;
+  .sidenav li {
+    margin: 0 0.5em;
+    display: flex;
+    align-items: center;
   }
-  
-  .title {
-    margin: 0 50px 0 50px;
+  .sidenav .welcome {
+    display: none; /* Hide logo or adjust as needed */
   }
-  .greet{
-    visibility: hidden;
+  main.content {
+    margin-left: 0;
+    margin-top: 60px; /* Height of the top nav */
+    width: 100vw;
+    padding: 1em;
+    box-sizing: border-box;
   }
-  .search-container{
-    padding-left: 70px;
-  }
-  
-  .top{
-    position: relative;
-    overflow: hidden;
-    width: auto;
-  }
-  
-    .column {
-      width: 100%;
-    }
-    
-
-  .sidenav li a {
-    float: left;
-    padding: 15px;
-  }
-  
-  div.content {margin-left: 0px;}
-  .footer{
-    text-align: right;
-    margin: auto;
-    padding:auto;
-
-  }
-
- .transaction{
-   overflow: auto;
- } 
-  
 }
+
+/* Prevent horizontal overflow */
+body, html {
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .sidenav {
+    font-size: 1em;
+    padding-top: 0.5em;
+  }
+  .sidenav ul {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0.5em 0;
+  }
+  .sidenav li {
+    margin: 0 0.5em;
+  }
+  .sidenav a {
+    padding: 0.5em 0.75em;
+    font-size: 0.95em;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .sidenav li a {
     text-align: center;
@@ -283,4 +305,9 @@ ul.nav-footer li a {
   display: block;
   margin: 0 auto;
   object-fit: contain;
+}
+.search-highlight {
+  background: yellow;
+  color: #222;
+  transition: background 0.3s;
 }

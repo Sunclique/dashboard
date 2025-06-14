@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Results</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://kit.fontawesome.com/042039b369.js" crossorigin="anonymous"></script>
+  <link rel="icon" type="image/x-icon" href="assets/icons/music_logo.svg">
+  <style>
+    .search-results-section {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: 2em;
+      margin-top: 2em;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .search-results-section h1 {
+      margin-bottom: 1em;
+    }
+    .search-result-item {
+      margin-bottom: 1.5em;
+      padding-bottom: 1em;
+      border-bottom: 1px solid #eee;
+    }
+    .search-result-item:last-child {
+      border-bottom: none;
+    }
+    .search-result-item a {
+      color: #4a4e69;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .search-result-item a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <div class="dashboard-layout">
+    <div id="sidebar"></div>
+    <main class="content">
+      <section class="search-results-section">
+        <h1>Search Results</h1>
+        <div id="search-results"></div>
+      </section>
+    </main>
+  </div>
+  <script src="scripts/components.js"></script>
+  <script>
+    loadComponent('components/Navbar.html', '#navbar');
+    loadComponent('components/Sidebar.html', '#sidebar');
+  </script>
+  <script>
+    // Define your searchable pages and their content here
+    const searchablePages = [
+      {
+        title: "Dashboard",
+        url: "index.html",
+        content: "Welcome back, Sunday Vegher! Here’s an overview of your dashboard activity."
+      },
+      {
+        title: "Customers",
+        url: "customers.html",
+        content: "Jane Doe, John Smith, Mary Johnson, Customers list and details."
+      },
+      {
+        title: "Orders",
+        url: "orders.html",
+        content: "Order #1001, Order #1002, Order #1003, Orders and their status."
+      },
+      {
+        title: "Products",
+        url: "products.html",
+        content: "Acoustic Guitar, Electric Piano, Drum Set, Product inventory."
+      },
+      {
+        title: "Reports",
+        url: "report.html",
+        content: "Monthly Sales, Customer Growth, Inventory, Reports and analytics."
+      },
+      {
+        title: "Integrations",
+        url: "integration.html",
+        content: "Slack, Google Drive, Dropbox, Buffer, Integration options."
+      },
+      // Add more pages as needed
+    ];
+
+    // Get the search query from the URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param) || '';
+    }
+
+    function showResults(query) {
+      const resultsDiv = document.getElementById('search-results');
+      resultsDiv.innerHTML = '';
+      if (!query) {
+        resultsDiv.innerHTML = '<p>Please enter a search term.</p>';
+        return;
+      }
+      const q = query.toLowerCase();
+      const results = searchablePages.filter(page =>
+        page.title.toLowerCase().includes(q) ||
+        page.content.toLowerCase().includes(q)
+      );
+      if (results.length === 0) {
+        resultsDiv.innerHTML = '<p>No results found.</p>';
+        return;
+      }
+      results.forEach(page => {
+        const item = document.createElement('div');
+        item.className = 'search-result-item';
+        item.innerHTML = `<a href="${page.url}">${page.title}</a><br><span>${page.content}</span>`;
+        resultsDiv.appendChild(item);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const query = getQueryParam('q');
+      showResults(query);
+    });
+  </script>
+</body>
+</html>
