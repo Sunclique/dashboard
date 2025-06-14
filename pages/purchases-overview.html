@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Purchases Overview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .graph-container {
+      max-width: 700px;
+      margin: 3em auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 2em;
+      text-align: center;
+    }
+    .graph-container h1 {
+      margin-bottom: 1em;
+      color: #22223b;
+    }
+    @media (max-width: 800px) {
+      .graph-container {
+        max-width: 98vw;
+        padding: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+      <nav class="breadcrumb">
+        <a href="index.html">Dashboard</a> /
+        <span>purchases-overview</span>
+      </nav>
+  <div class="graph-container">
+    <h1>Purchases Overview (Products Sold per Month)</h1>
+    <canvas id="purchasesChart" height="300"></canvas>
+  </div>
+  <script>
+    // Months for the x-axis
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+    // Products matching your report
+    const products = ["Guitar", "Piano", "Drum Set", "Microphone"];
+    // Higher numbers for each product per month
+    const productData = [
+      [45, 52, 60, 68, 73, 80], // Guitar
+      [38, 41, 47, 55, 60, 66], // Piano
+      [32, 36, 39, 44, 48, 53], // Drum Set
+      [50, 54, 59, 65, 70, 78]  // Microphone
+    ];
+
+    const colors = ["#4a4e69", "#9a8c98", "#c9ada7", "#f2e9e4"];
+
+    const datasets = products.map((product, i) => ({
+      label: product,
+      data: productData[i],
+      backgroundColor: colors[i % colors.length],
+      borderColor: colors[i % colors.length],
+      fill: false,
+      tension: 0.3
+    }));
+
+    new Chart(document.getElementById('purchasesChart'), {
+      type: 'line',
+      data: {
+        labels: months,
+        datasets: datasets
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          title: { display: false }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Products Sold' }
+          }
+        }
+      }
+    });
+  </script>
+  
+</body>
+</html>
