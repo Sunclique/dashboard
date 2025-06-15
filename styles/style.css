@@ -311,3 +311,18 @@ body, html {
   color: #222;
   transition: background 0.3s;
 }
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .table-responsive table {
+    min-width: 600px; /* Adjust as needed */
+    width: max-content;
+    display: block;
+  }
+
+
+
+
+
+
